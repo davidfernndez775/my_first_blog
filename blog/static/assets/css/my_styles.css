@@ -1,0 +1,20 @@
+.container {
+  background: rgba(218, 218, 218, 0.398);
+  margin-top: none;
+}
+
+body {
+  background-image: url(../../assets/images/fondo_blog.jpg);
+  background-size: 100vh;
+}
+
+.navbar-text {
+  font-family: "Almendra SC", serif;
+}
+
+.nav-item {
+  font-family: "Almendra SC", serif;
+}
+nav {
+  background-color: rgb(151, 110, 57);
+}

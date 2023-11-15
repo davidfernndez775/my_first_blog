@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html data-bs-theme="light" lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <meta name="description" content="This is a literary blog">
         <meta name="keywords" content="blog, literary">
         <title>Base</title>
+        <link rel="stylesheet" href="{% static "assets/css/my_styles.css" %}">
+        <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "assets/css/Almendra%20SC.css" %}">
+        <link rel="stylesheet" href="{% static "assets/css/Navbar-Centered-Links-icons.css" %}">
     </head>
     <body>
-        <nav>
-            <div>
-                <ul>
-                    <li>
-                        <a href="{% url "post_list" %}">My Literary Blog</a>
-                    </li>
-                    <li>
-                        <a href="{% url "about" %}">About</a>
-                    </li>
-                    <li>
-                        <a href="https://www.github.com">GitHub</a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com">Linkedin</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                        <li>
-                            <a href="{% url "post_new" %}">New Post</a>
+        <div class="container">
+            <nav class="navbar navbar-expand-md bg-body py-3">
+                {% comment %} <div class="container" id="navbar_mine"> {% endcomment %}
+                <a class="navbar-brand d-flex align-items-center"
+                   href="{% url "post_list" %}">
+                    <img src="{% static "assets/images/old_pen.png" %}" heigth="44rem" width="44rem">
+                    <span>My Literary Blog</span></a>
+                <button data-bs-toggle="collapse"
+                        class="navbar-toggler"
+                        data-bs-target="#navcol-3">
+                    <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navcol-3">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url "about" %}">About</a>
                         </li>
-                        <li>
-                            <a href="{% url "post_draft_list" %}">Post Draft List</a>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="https://www.github.com">GitHub</a>
                         </li>
-                        <li>
-                            <a href="{% url "logout" %}">Logout</a>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="https://www.linkedin.com">Linkedin</a>
                         </li>
-                        <li>
-                            <p>Welcome: {{ user.username }}</p>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a href="{% url "login" %}">Login</a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav>
-        <div>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url "post_new" %}">New Post</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url "post_draft_list" %}">Post Draft List</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url "logout" %}">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url "login" %}">Login</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    {% if user.is_authenticated %}<p class="navbar-text">Welcome: {{ user.username }}</p>{% endif %}
+                </div>
+                {% comment %} </div> {% endcomment %}
+            </nav>
+        </div>
+        <div class="container">
             {% block content %}
             {% endblock content %}
         </div>
+        <script src={% static "assets/js/bootstrap.min.js" %}></script>
     </body>
 </html>
