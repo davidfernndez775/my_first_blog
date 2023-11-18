@@ -1,14 +1,19 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    {% for post in post_list %}
-        <div>
-            <h1>
-                <a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a>
-            </h1>
-            <p>Published on: {{ post.published_date|date:"D M Y" }}</p>
-            <p>
-                <a href="{% url "post_detail" pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
-            </p>
-        </div>
-    {% endfor %}
+    <div class="container">
+        <h1 class="title-first">My Post List</h1>
+    </div>
+    <div class="card-group">
+        {% for post in post_list %}
+            <div class="card">
+                <h4 class="card-title">
+                    <a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a>
+                </h4>
+                <p class="card-text">Published on: {{ post.published_date|date:"D M Y" }}</p>
+                <p class="card-text">
+                    <a href="{% url "post_detail" pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+                </p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

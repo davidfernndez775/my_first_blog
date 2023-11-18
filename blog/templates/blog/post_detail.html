@@ -1,32 +1,48 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    <div>
-        <h1>{{ post.title }}</h1>
-        {% if post.published_date %}
-            <p>{{ post.published_date }}</p>
-        {% else %}
-            <a href="{% url "post_publish" pk=post.pk %}">Publish</a>
-        {% endif %}
-        <p>{{ post.text|safe|linebreaksbr }}</p>
-        {% if user.is_authenticated %}
-            <a href="{% url "post_edit" pk=post.pk %}">Edit</a>
-            <a href="{% url "post_remove" pk=post.pk %}">Remove</a>
-        {% endif %}
-        <a href="{% url "add_comment_to_post" pk=post.pk %}">Add Comment</a>
-    </div>
-    <div>
-        {% for comment in post.comments.all %}
-            {% if user.is_authenticated or comment.approved_comment %}
-                {{ comment.create_date }}
-                {% if not comment.approved_comment %}
-                    <a href="{% url "comment_approve" pk=comment.pk %}">Approve</a>
-                    <a href="{% url "comment_remove" pk=comment.pk %}">Remove</a>
-                {% endif %}
-                <p>{{ comment.text|safe|linebreaks }}</p>
-                <p>Posted by: {{ comment.author }}</p>
+    <div class="container" id="post-back">
+        <div class="card">
+            <h1 class="card-title">{{ post.title }}</h1>
+            {% if post.published_date %}
+                <p>{{ post.published_date }}</p>
+            {% else %}
+                <a href="{% url "post_publish" pk=post.pk %}">Publish</a>
             {% endif %}
-        {% empty %}
-            <p>No comments yet</p>
-        {% endfor %}
+            <p>{{ post.text|safe|linebreaksbr }}</p>
+            <div class="btn-group" role="group">
+                {% if user.is_authenticated %}
+                    <a type="button"
+                       class="btn btn-primary"
+                       id="edit-button"
+                       href="{% url "post_edit" pk=post.pk %}">Edit</a>
+                    <a type="button"
+                       class="btn btn-primary"
+                       id="remove-button"
+                       href="{% url "post_remove" pk=post.pk %}">Remove</a>
+                {% endif %}
+                <a type="button"
+                   class="btn btn-primary"
+                   id="add-comment-button"
+                   href="{% url "add_comment_to_post" pk=post.pk %}">Add Comment</a>
+            </div>
+        </div>
+        <div class="card" id="comments">
+            <h4 class="card-title">Comments</h4>
+            {% for comment in post.comments.all %}
+                {% if user.is_authenticated or comment.approved_comment %}
+                    <div class="card">
+                        {{ comment.create_date }}
+                        {% if not comment.approved_comment %}
+                            <a href="{% url "comment_approve" pk=comment.pk %}">Approve</a>
+                            <a href="{% url "comment_remove" pk=comment.pk %}">Remove</a>
+                        {% endif %}
+                        <p>{{ comment.text|safe|linebreaks }}</p>
+                        <p>Posted by: {{ comment.author }}</p>
+                    </div>
+                {% endif %}
+            {% empty %}
+                <p>No comments yet</p>
+            {% endfor %}
+        </div>
     </div>
 {% endblock content %}

@@ -15,12 +15,11 @@
         <link rel="stylesheet" href="{% static "assets/css/Navbar-Centered-Links-icons.css" %}">
     </head>
     <body>
-        <div class="container">
-            <nav class="navbar navbar-expand-md bg-body py-3">
-                {% comment %} <div class="container" id="navbar_mine"> {% endcomment %}
+        <div class="container" id="nav_container">
+            <nav class="navbar navbar-expand-xl bg-body py-3" id="my_nav">
                 <a class="navbar-brand d-flex align-items-center"
                    href="{% url "post_list" %}">
-                    <img src="{% static "assets/images/old_pen.png" %}" heigth="44rem" width="44rem">
+                    <img src="{% static "assets/images/old_pen.png" %}" alt="" id="brand-mine">
                     <span>My Literary Blog</span></a>
                 <button data-bs-toggle="collapse"
                         class="navbar-toggler"
@@ -56,10 +55,9 @@
                     </ul>
                     {% if user.is_authenticated %}<p class="navbar-text">Welcome: {{ user.username }}</p>{% endif %}
                 </div>
-                {% comment %} </div> {% endcomment %}
             </nav>
         </div>
-        <div class="container">
+        <div class="container" id="block">
             {% block content %}
             {% endblock content %}
         </div>

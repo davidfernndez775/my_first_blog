@@ -1,6 +1,8 @@
-.container {
-  background: rgba(218, 218, 218, 0.398);
-  margin-top: none;
+#my_nav {
+  padding: 1rem;
+  background: linear-gradient(rgb(202, 202, 202), white);
+  position: sticky;
+  overflow: hidden;
 }
 
 body {
@@ -8,13 +10,58 @@ body {
   background-size: 100vh;
 }
 
-.navbar-text {
-  font-family: "Almendra SC", serif;
-}
-
+.navbar-text,
 .nav-item {
   font-family: "Almendra SC", serif;
+  font-size: 1.3rem;
+  margin: 1.1rem;
 }
-nav {
-  background-color: rgb(151, 110, 57);
+
+.title-first {
+  font-family: "Almendra SC", serif;
+  font-size: 2rem;
+}
+
+.card {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+#post-back {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(rgb(200, 200, 200), white);
+}
+
+#comments {
+  background: linear-gradient(rgb(232, 232, 232), rgb(98, 98, 98));
+}
+
+#brand-mine {
+  height: 2rem;
+  width: 2rem;
+}
+
+.btn-group {
+  position: relative;
+  display: grid;
+}
+#edit-button,
+#add-comment-button {
+  background-color: rgb(56, 56, 56);
+  border-radius: 2%;
+  border: none;
+  position: relative;
+  display: block;
+}
+
+#remove-button {
+  /* margin: 1rem;
+  height: 2.5rem;
+  width: 12rem; */
+  background-color: rgb(105, 64, 64);
+  border-radius: 2%;
+  border: none;
+  position: relative;
+  display: block;
 }
