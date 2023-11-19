@@ -14,8 +14,9 @@ class PostForm(forms.ModelForm):
         fields = ('author', 'title', 'text')
         # asignamos clases CSS a los elementos del formulario
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'textinputclass'}),
-            'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea postcontent'})
+            'author': forms.Select(attrs={'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'text': forms.Textarea(attrs={'class': 'form-control'})
         }
 
 
@@ -26,6 +27,6 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('author', 'text')
         widgets = {
-            'author': forms.TextInput(attrs={'class': 'textinputclass'}),
-            'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea'})
+            'author': forms.TextInput(attrs={'class': 'form-control'}),
+            'text': forms.Textarea(attrs={'class': 'form-control'})
         }
