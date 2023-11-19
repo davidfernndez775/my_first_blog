@@ -1,5 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    <h1>You are logged out</h1>
-    <a href="{% url "post_list" %}">Get back to post list page</a>
+    <div class="container" id="about-card">
+        <h3>You are logged out</h3>
+        <a href="{% url "post_list" %}" id="link-back">Get back to post list page</a>
+    </div>
 {% endblock content %}
