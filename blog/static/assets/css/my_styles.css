@@ -18,8 +18,10 @@ body {
 }
 
 .title-first {
-  font-family: "Almendra SC", serif;
-  font-size: 2rem;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  padding: 1rem;
+  background-color: rgb(229, 229, 229);
 }
 
 .card {
@@ -27,6 +29,19 @@ body {
   margin: 1rem;
 }
 
+#card-title {
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+#card-text {
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
 #post-back {
   margin-top: 1rem;
   padding: 1rem;
@@ -55,13 +70,68 @@ body {
   display: block;
 }
 
+#approve-button {
+  background-color: rgb(50, 68, 42);
+  border-radius: 2%;
+  border: none;
+  position: relative;
+  display: block;
+}
 #remove-button {
-  /* margin: 1rem;
-  height: 2.5rem;
-  width: 12rem; */
   background-color: rgb(105, 64, 64);
   border-radius: 2%;
   border: none;
   position: relative;
   display: block;
+}
+
+#publish-button {
+  background-color: rgb(64, 102, 105);
+  border: none;
+}
+
+.publish {
+  font-size: 14px;
+  font-style: italic;
+}
+
+#title-pres {
+  background-color: rgb(211, 211, 211);
+  padding: 1rem;
+}
+
+#text-all {
+  padding: 1rem;
+}
+
+#login-form {
+  background-color: rgba(240, 248, 255, 0);
+  border: none;
+}
+
+#login-button {
+  background-color: rgb(13, 52, 87);
+  border: none;
+}
+
+#login-container {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  background-color: rgba(204, 212, 219, 0.488);
+}
+
+#post-form {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  padding: 3rem;
+  margin: 3rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  background-color: rgba(204, 212, 219, 0.488);
+}
+
+#delete-form {
+  padding: 1rem;
 }
