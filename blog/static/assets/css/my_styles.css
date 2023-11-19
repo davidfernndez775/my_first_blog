@@ -135,3 +135,12 @@ body {
 #delete-form {
   padding: 1rem;
 }
+
+#about-card{
+  font-family: "Times New Roman", Times, serif;
+  padding: 1rem;
+}
+
+#link-back{
+  font-family: "Times New Roman", Times, serif;
+}
