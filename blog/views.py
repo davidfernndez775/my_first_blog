@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from blog.forms import PostForm, CommentForm
 
+
 # Create your views here.
 
 
@@ -35,6 +36,11 @@ class CreatePostView(LoginRequiredMixin, CreateView):
 
     model = Post
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     login_url = '/login/'
@@ -58,6 +64,7 @@ class DraftListView(LoginRequiredMixin, ListView):
 class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('post_list')
+
 
 #######################################
 ## Functions that require a pk match ##

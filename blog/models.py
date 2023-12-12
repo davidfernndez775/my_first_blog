@@ -4,6 +4,7 @@ from django.utils import timezone
 # importamos reverse para ir a una url despues de una operacion
 from django.urls import reverse
 
+
 # Create your models here.
 
 # creamos la clase para los post del blog
@@ -14,7 +15,10 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
-    create_date = models.DateTimeField(default=timezone.now())
+    # los campos DateTimeField poseen dos parametros importantes a conocer
+    # auto_now  =>  este campo especifica que en cada .save que reciba el objeto la fecha se guardara
+    # auto_now_add  =>  este campo especifica que se guardara la fecha solo al momento de crearse el objeto, sustituyes por el default que tenias
+    create_date = models.DateTimeField(auto_now_add=True)
     # la fecha de publicacion puede quedar en blanco porque no este publicado todavia
     published_date = models.DateTimeField(blank=True, null=True)
 
@@ -34,6 +38,7 @@ class Post(models.Model):
     def __str__(self) -> str:
         return self.title
 
+
 # creamos la clase comentario
 
 
@@ -44,7 +49,8 @@ class Comment(models.Model):
     # el autor de un comentario no tiene que ser un superuser
     author = models.CharField(max_length=200)
     text = models.TextField()
-    create_date = models.DateTimeField(default=timezone.now())
+    # lo mismo especificado en el campo de arriba
+    create_date = models.DateTimeField(auto_now_add=True)
     # los comentarios necesitan ser aprobados antes de mostrarse, al principio estan en False
     approved_comment = models.BooleanField(default=False)
 
