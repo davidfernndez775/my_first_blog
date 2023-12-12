@@ -32,10 +32,11 @@
                             <a class="nav-link active" href="{% url "about" %}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="https://www.github.com">GitHub</a>
+                            {# el target puedes usarlo cuando tienes enalces externos para no cerrar tu pagina y que le abra el link #}
+                            <a class="nav-link active" target="_blank" href="https://www.github.com">GitHub</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="https://www.linkedin.com">Linkedin</a>
+                            <a class="nav-link active" target="_blank" href="https://www.linkedin.com">Linkedin</a>
                         </li>
                         {% if user.is_authenticated %}
                             <li class="nav-item">
