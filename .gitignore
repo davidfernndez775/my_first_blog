@@ -141,8 +141,3 @@ dmypy.json
 .vscode/
 **/__pycache__/
 root/
-venv/
-empleado/templates/pdf/registro_militar/form.html
-doc/.maestria.vpp.lck
-doc/maestria.vpp.bak_000f
-doc/maestria.vpp.bak_001d
