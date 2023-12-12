@@ -22,6 +22,7 @@ class PostForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
+        # Debes retirar los kwargs extras para el correcto funcionamiento y creacion de la intancia del formulario de django
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
         if self.fields.get("author", None) and user:
